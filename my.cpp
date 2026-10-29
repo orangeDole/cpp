@@ -1,86 +1,42 @@
-#include <iostream>
-using namespace std;
+#include<iostream>
+#include<cstdio>
 
-class Hero{
-    public :
-  void heroAttack();
-  void heroWalk(string direction);
-  void heroTalk(string word);
-  void showInfo();
-  void showItems(string item[],int size);
-  
+int add (int a , int b ) {
 
-
-string  heroName;
-int    levelHero;
-string  typeHero;
-int healthPoints;
-int   heroEnergy;
-//// атрибути
-
-    Hero(string name,int level,string type,int health ,int energy ){
-
-        heroName  =      name;
-        levelHero =     level;
-        typeHero  =      type;
-        healthPoints = health;
-        heroEnergy   = energy;
-/// CONSTRUCTOR
-    };
-
-  
+    return a + b;
 };
 
-void Hero::showItems(string item[],int size) {
-for(int i = 0 ; i< size ; i++) {
-    std::cout<<item[i]<<" "<<std::endl;
-}
-};
 
-void Hero::showInfo(){
-    std::cout<<"HeroName:     "<<heroName<<"."<<std::endl;
-    std::cout<<"TypeHero:     "<<typeHero<<"."<<std::endl;
-    std::cout<<"HeroHealth:   "<<healthPoints<<"."<<std::endl;
-    std::cout<<"HeroEnergy:   "<<heroEnergy<<"."<<std::endl;
-};
+int (*myfunction) (int a , int b);
 
-void Hero::heroAttack(){
-    std::cout<<"attack:15."<<std::endl;
-};
-void Hero::heroTalk(string word){
-    std::cout<<"Hero:"<<heroName<<" ->"<<"Says"<<"\t"<<word<<std::endl;
-};
-void Hero::heroWalk(string direction){
-if (heroEnergy <= 5) {
-    std::cout<<"NO energy find food"<<std::endl;
+
+
+
+
+const char* qwe[]  = {"vova","petia","kasia","nazik"};
+
+char name = 'p';
+std::string names = "vova";
+
+enum Names {vova = 1, petia = 2, alex = 3};
+
+int main (){
+
+    
+myfunction = &add;
+
+
+std::cout<<&qwe[0]<<std::endl;
+std::cout<<&qwe[1]<<std::endl;
+std::cout<<&qwe[2]<<std::endl;
+std::cout<<&qwe[3]<<std::endl;
+
+for (int i = 0 ; i<= 4; i++) {
+    std::cout<<&qwe[i]<<std::endl;
 }
 
-        heroEnergy -= 5;
-
-    std::cout<<"Goes"<<" "<<direction<<"."<<std::endl;
-    std::cout<<"energy left:"<<" "<<heroEnergy<<"."<<std::endl;
-};
 
 
-//// ЗОВНІШНІ ФУНКЦІІ
-
-int heroOgre(){
-
-    Hero ogreMagi("Ogre",5,"Magic",100,150);
-
-    string ogresItems[5] = {"sword","gloves","ring","goldRing","map"};
-
-    ogreMagi.showInfo();
-
-    return 0;
-};
-
-
-
-
-int main(){
-
-    heroOgre();
 
     return 0;
 }
